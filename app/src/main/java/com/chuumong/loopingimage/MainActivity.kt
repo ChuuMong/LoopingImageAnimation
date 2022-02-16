@@ -47,10 +47,10 @@ class MainActivity : AppCompatActivity() {
         val runnable = object : Runnable {
             override fun run() {
                 binding.rvLoop.scrollBy(2, 0)
-                handler.postDelayed(this, 0)
+                handler.post(this)
             }
         }
 
-        handler.postDelayed(runnable, 0)
+        handler.post(runnable)
     }
 }
