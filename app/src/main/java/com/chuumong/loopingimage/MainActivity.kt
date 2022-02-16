@@ -1,12 +1,8 @@
 package com.chuumong.loopingimage
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.OrientationHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.bekawestberg.loopinglayout.library.LoopingLayoutManager
 import com.chuumong.loopingimage.databinding.ActivityMainBinding
 
@@ -43,14 +39,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startLoopAnimation() {
-        val handler = Handler(Looper.getMainLooper())
         val runnable = object : Runnable {
             override fun run() {
-                binding.rvLoop.scrollBy(2, 0)
-                handler.post(this)
+                binding.rvLoop.scrollBy(3, 0)
+                binding.rvLoop.post(this)
             }
         }
 
-        handler.post(runnable)
+        binding.rvLoop.post(runnable)
     }
 }
